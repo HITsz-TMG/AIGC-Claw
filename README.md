@@ -1,14 +1,14 @@
-# 🎬 AIGC-Claw
+# <img src="aigc-director-pics/logo.jpg" width="40" /> AIGC-Claw
 
 <p align="center">
-  <a href="https://github.com/hit-cxf/AIGC-Claw/stargazers">
-    <img src="https://img.shields.io/github/stars/hit-cxf/AIGC-Claw?style=flat-square&logo=github" alt="Stars">
+  <a href="https://github.com/HITsz-TMG/AIGC-Claw/stargazers">
+    <img src="https://img.shields.io/github/stars/HITsz-TMG/AIGC-Claw?style=flat-square&logo=github" alt="Stars">
   </a>
-  <a href="https://github.com/hit-cxf/AIGC-Claw/fork">
-    <img src="https://img.shields.io/github/forks/hit-cxf/AIGC-Claw?style=flat-square&logo=github" alt="Forks">
+  <a href="https://github.com/HITsz-TMG/AIGC-Claw/fork">
+    <img src="https://img.shields.io/github/forks/HITsz-TMG/AIGC-Claw?style=flat-square&logo=github" alt="Forks">
   </a>
-  <a href="https://github.com/hit-cxf/AIGC-Claw/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/hit-cxf/AIGC-Claw?style=flat-square" alt="License">
+  <a href="https://github.com/HITsz-TMG/AIGC-Claw/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/HITsz-TMG/AIGC-Claw?style=flat-square" alt="License">
   </a>
   <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/Python-3.9+-purple.svg" alt="Python">
@@ -20,15 +20,25 @@
 
 <div align="center">
 
-🎯  [**项目主页**](https://github.com/hit-cxf/AIGC-Claw)  :octocat:  [**代码**](https://github.com/hit-cxf/AIGC-Claw)  📝  [**文档**](./aigc-director/SKILL.md)
+🎯  [**项目主页**](https://github.com/HITsz-TMG/AIGC-Claw)  :octocat:  [**代码**](https://github.com/HITsz-TMG/AIGC-Claw)  📝  [**文档**](./aigc-director/SKILL.md)
 
 </div>
 
 ---
 
-## 📺 Demo 演示
+## 📖 项目介绍
 
-### 工作流界面
+AIGC-Claw 是一个基于 OpenClaw 平台的 AI 视频生成系统，通过 6 个阶段将用户的创意想法转化为完整的视频作品。
+
+系统模拟了影视制作的完整流程：从剧本创作、角色设计、分镜规划，到参考图生成、视频生成，最后进行后期剪辑。每个阶段完成后都会展示产物，等待用户确认后继续下一阶段，确保用户对最终视频有完整的把控。
+
+AIGC-Claw 支持多种 AI 模型接入，包括阿里云 DashScope、字节跳动 Seedream、即梦 Jimeng、快手可灵 Kling、DeepSeek、OpenAI 和 Google Gemini，可根据需求灵活选择。
+
+---
+
+## 📺 AIGC-Claw
+
+###   Web前端界面
 
 <div align="center">
 
@@ -40,16 +50,23 @@
 
 </div>
 
-### 微信交互展示
+### 微信交互
 
 <div align="center">
 
-| | |
-|:---:|:---:|
-| ![Settings](./aigc-director-pics/wechat_demo/1_settings.jpg) | ![Choose Mode](./aigc-director-pics/wechat_demo/3_choose_mode.jpg) |
-| ![Choose Logline](./aigc-director-pics/wechat_demo/2_choose_logline.jpg) | ![Script](./aigc-director-pics/wechat_demo/4_get_script.jpg) |
-| ![Characters](./aigc-director-pics/wechat_demo/5_get_characters.jpg) | ![References](./aigc-director-pics/wechat_demo/6_get_references.jpg) |
-| ![Videos](./aigc-director-pics/wechat_demo/7_get_videos.jpg) | |
+| | | | |
+|:---:|:---:|:---:|:---:|
+| ![WeChat 1](./aigc-director-pics/wechat_demo/wechat_1.jpg) | ![WeChat 2](./aigc-director-pics/wechat_demo/wechat_2.jpg) | ![WeChat 3](./aigc-director-pics/wechat_demo/wechat_3.jpg) | ![WeChat 4](./aigc-director-pics/wechat_demo/wechat_4.jpg) |
+
+</div>
+
+### 飞书交互
+
+<div align="center">
+
+| | | | |
+|:---:|:---:|:---:|:---:|
+| ![Feishu 1](./aigc-director-pics/feishu_demo/feishu_1.jpg) | ![Feishu 2](./aigc-director-pics/feishu_demo/feishu_2.jpg) | ![Feishu 3](./aigc-director-pics/feishu_demo/feishu_3.jpg) | ![Feishu 4](./aigc-director-pics/feishu_demo/feishu_4.jpg) |
 
 </div>
 
@@ -101,7 +118,7 @@
 
 ```bash
 # 1. 克隆项目
-git clone https://github.com/hit-cxf/AIGC-Claw.git
+git clone https://github.com/HITsz-TMG/AIGC-Claw.git
 cd AIGC-Claw
 
 # 2. 配置并启动后端
@@ -135,7 +152,7 @@ npm start
 向 OpenClaw 发送消息：
 
 ```
-帮我克隆git仓库：https://github.com/hit-cxf/AIGC-Claw.git
+帮我克隆git仓库：https://github.com/HITsz-TMG/AIGC-Claw.git
 然后把AIGC-Claw中的aigc-director文件夹递归复制到workspace/skills中，用作AIGC相关的skill
 ```
 
@@ -161,17 +178,6 @@ npm start
 ```
 
 </div>
-
-### 阶段产物展示
-
-| 阶段 | 产物示例 |
-|:---:|:---:|
-| 剧本生成 | ![Script Placeholder](https://via.placeholder.com/300x200/16213e/0f3460?text=Script+Output) |
-| 角色设计 | ![Character Placeholder](https://via.placeholder.com/300x200/16213e/0f3460?text=Character+Design) |
-| 分镜设计 | ![Storyboard Placeholder](https://via.placeholder.com/300x200/16213e/0f3460?text=Storyboard) |
-| 参考图生成 | ![Reference Placeholder](https://via.placeholder.com/300x200/16213e/0f3460?text=Reference+Images) |
-| 视频生成 | ![Video Placeholder](https://via.placeholder.com/300x200/16213e/0f3460?text=Video+Clips) |
-| 后期剪辑 | ![Final Placeholder](https://via.placeholder.com/300x200/16213e/0f3460?text=Final+Video) |
 
 ---
 
@@ -254,7 +260,7 @@ DEEPSEEK_API_KEY=your_key
 |:---:|:---|
 | 📖 [SKILL.md](./aigc-director/SKILL.md) | OpenClaw Agent 工作流规则 |
 | 📖 [CLAUDE.md](./aigc-director/CLAUDE.md) | Claude Code 开发指引 |
-| 📖 [API 文档](./aigc-director/references/workflow/) | 六阶段工作流 API |
+| 📖 [README 文档](./README.md) | 六阶段工作流 API |
 
 </div>
 
