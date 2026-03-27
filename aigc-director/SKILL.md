@@ -97,17 +97,45 @@ aigc-director/                    ← OpenClaw 调用的 skill 根目录
 ```
 1. 检查后端运行状态 → 未运行则参考 start_backend.md 启动 → 等待3秒 → 再次检查
 2. 检查前端运行状态 → 未运行则参考 start_frontend.md 启动 → 等待5秒 → 再次检查
-3. 参考 create_project.md 询问用户项目配置 → 停点1（配置确认）
-4. 参考 create_script.md 执行剧本生成 → 停点2-5
-5. 参考 create_character.md 执行角色设计 → 停点6
-6. 参考 create_storyboard.md 执行分镜设计 → 停点7
-7. 参考 create_reference.md 执行参考图生成 → 停点8
-8. 参考 create_video.md 执行视频生成 → 停点9
-9. 参考 create_post.md 执行后期剪辑
-10. 完成 → 发送最终视频给用户
+3. 检查 API Key 配置 → 读取 .env 文件，确认所需 API Key 已配置
+4. 参考 create_project.md 询问用户项目配置 → 停点1（配置确认）→ 创建项目
+5. 参考 create_script.md 执行剧本生成 → 停点2-5
+6. 参考 create_character.md 执行角色设计 → 停点6
+7. 参考 create_storyboard.md 执行分镜设计 → 停点7
+8. 参考 create_reference.md 执行参考图生成 → 停点8
+9. 参考 create_video.md 执行视频生成 → 停点9
+10. 参考 create_post.md 执行后期剪辑
+11. 完成 → 发送最终视频给用户
 ```
 
 > **注意**：一定要参考 `references/` 目录下的具体文档执行每一步操作，不要凭记忆或想当然去调用 API！
+
+#### 检查 API Key 配置
+
+在创建项目前，必须检查用户选择的模型对应的 API Key 是否已配置：
+
+```bash
+# 读取 .env 文件检查配置
+cat aigc-claw/backend/.env | grep -E "API_KEY|KEY"
+
+# 必需的配置（根据选择的模型）
+# LLM: DASHSCOPE_API_KEY / DEEPSEEK_API_KEY / OPENAI_API_KEY / GEMINI_API_KEY
+# 图片: ARK_API_KEY / DASHSCOPE_API_KEY
+# 视频: DASHSCOPE_API_KEY / VOLC_ACCESS_KEY / KLING_ACCESS_KEY
+```
+
+如果 API Key 未配置，需要提醒用户：
+1. 告知缺少哪个平台的 API Key
+2. 提供获取方式
+3. 配置位置（`aigc-claw/backend/.env` 文件）
+4. 等待用户配置完成后才能继续
+
+| 平台 | API Key 变量 | 获取链接 |
+|------|--------------|----------|
+| DeepSeek | `DEEPSEEK_API_KEY` | https://platform.deepseek.com/api_keys |
+| 阿里云 DashScope | `DASHSCOPE_API_KEY` | https://bailian.console.aliyun.com/cn-beijing/?tab=home#/home |
+| 字节火山方舟 | `ARK_API_KEY` 或 `VOLC_ACCESS_KEY`/`VOLC_SECRET_KEY` | https://www.volcengine.com/product/ark |
+| 快手可灵 Kling | `KLING_ACCESS_KEY`/`KLING_SECRET_KEY` | https://klingai.com/cn/dev |
 
 ---
 

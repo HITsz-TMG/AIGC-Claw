@@ -1,10 +1,6 @@
 # 🎬 AIGC-Claw
 
 <p align="center">
-
-</p>
-
-<p align="center">
   <a href="https://github.com/hit-cxf/AIGC-Claw/stargazers">
     <img src="https://img.shields.io/github/stars/hit-cxf/AIGC-Claw?style=flat-square&logo=github" alt="Stars">
   </a>
@@ -14,28 +10,56 @@
   <a href="https://github.com/hit-cxf/AIGC-Claw/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/hit-cxf/AIGC-Claw?style=flat-square" alt="License">
   </a>
-  <a href="https://discord.gg/your-invite-link">
-    <img src="https://img.shields.io/discord/123456789?label=Discord&style=flat-square" alt="Discord">
-  </a>
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Python-3.9+-purple.svg" alt="Python">
 </p>
 
 <p align="center">
   <b>AI 视频生成全流程系统 | 通过 6 个阶段将用户想法转化为完整视频</b>
 </p>
 
+<div align="center">
+
+🎯  [**项目主页**](https://github.com/hit-cxf/AIGC-Claw)  :octocat:  [**代码**](https://github.com/hit-cxf/AIGC-Claw)  📝  [**文档**](./aigc-director/SKILL.md)
+
+</div>
+
 ---
 
 ## 📺 Demo 演示
 
-<!-- 视频/图片展示区 -->
+### 工作流界面
 
 <div align="center">
 
-![Demo Video Placeholder](https://via.placeholder.com/800x450/1a1a2e/e94560?text=🎬+Demo+Video+Placeholder)
-
-*点击上方图片查看完整演示视频*
+| | |
+|:---:|:---:|
+| ![Stage 1](./aigc-director-pics/workflow_demo/stage_1.png) | ![Stage 2](./aigc-director-pics/workflow_demo/stage_2.png) |
+| ![Stage 3](./aigc-director-pics/workflow_demo/stage_3.png) | ![Stage 4](./aigc-director-pics/workflow_demo/stage_4.png) |
+| ![Stage 5](./aigc-director-pics/workflow_demo/stage_5.png) | ![Stage 6](./aigc-director-pics/workflow_demo/stage_6.png) |
 
 </div>
+
+### 微信交互展示
+
+<div align="center">
+
+| | |
+|:---:|:---:|
+| ![Settings](./aigc-director-pics/wechat_demo/1_settings.jpg) | ![Choose Mode](./aigc-director-pics/wechat_demo/3_choose_mode.jpg) |
+| ![Choose Logline](./aigc-director-pics/wechat_demo/2_choose_logline.jpg) | ![Script](./aigc-director-pics/wechat_demo/4_get_script.jpg) |
+| ![Characters](./aigc-director-pics/wechat_demo/5_get_characters.jpg) | ![References](./aigc-director-pics/wechat_demo/6_get_references.jpg) |
+| ![Videos](./aigc-director-pics/wechat_demo/7_get_videos.jpg) | |
+
+</div>
+
+---
+
+## 💥 News
+
+- `2025/3/27`: 🚀 AIGC-Claw 正式发布，支持 6 阶段视频生成全流程
+- `2025/3/20`: 🎬 集成多种视频生成模型（ wan2.6、kling、jimeng ）
+- `2025/3/15`: 🖼️ 支持多模型文生图（ Seedream、即梦、Wan2.6 ）
 
 ---
 

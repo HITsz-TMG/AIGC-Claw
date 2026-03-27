@@ -153,7 +153,36 @@ curl -X POST "http://localhost:8000/api/project/start" \
 ## 注意事项
 
 1. **必须询问用户**：在创建项目前，一定要询问用户项目的配置，用户没有提及的选项则使用默认值
-5. **检查 API Key**：根据选择的模型检查对应 API Key 是否配置
+2. **检查 API Key**：在创建项目前，必须检查用户选择的模型对应的 API Key 是否已配置
+
+### API Key 检查步骤
+
+```bash
+# 1. 读取 .env 文件
+cat aigc-claw/backend/.env
+
+# 2. 根据用户选择的模型检查对应 API Key
+#    - LLM 模型：检查 DASHSCOPE_API_KEY / DEEPSEEK_API_KEY / OPENAI_API_KEY / GEMINI_API_KEY
+#    - 图片模型：检查 ARK_API_KEY / DASHSCOPE_API_KEY / VOLC_ACCESS_KEY/VOLC_SECRET_KEY
+#    - 视频模型：检查 DASHSCOPE_API_KEY / VOLC_ACCESS_KEY/VOLC_SECRET_KEY / KLING_ACCESS_KEY/KLING_SECRET_KEY
+
+# 3. 如果缺少 API Key，提醒用户配置
+```
+
+### 缺少 API Key 时的处理
+
+如果检测到缺少必要的 API Key，需要告知用户：
+1. 缺少哪个平台的 API Key
+2. 如何获取（官方链接）
+3. 配置位置（`aigc-claw/backend/.env` 文件）
+4. 等待用户配置完成后才能继续创建项目
+
+| 平台 | API Key 变量 | 获取链接 |
+|------|--------------|----------|
+| DeepSeek | `DEEPSEEK_API_KEY` | https://platform.deepseek.com/api_keys |
+| 阿里云 DashScope | `DASHSCOPE_API_KEY` | https://bailian.console.aliyun.com/cn-beijing/?tab=home#/home |
+| 字节火山方舟 | `ARK_API_KEY` 或 `VOLC_ACCESS_KEY`/`VOLC_SECRET_KEY` | https://www.volcengine.com/product/ark |
+| 快手可灵 Kling | `KLING_ACCESS_KEY`/`KLING_SECRET_KEY` | https://klingai.com/cn/dev |
 
 ---
 

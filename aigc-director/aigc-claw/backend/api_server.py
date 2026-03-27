@@ -111,7 +111,7 @@ async def start_project(req: ProjectStartRequest):
     session_id = str(int(time.time() * 1000))
     state = workflow_engine.get_or_create_state(session_id)
     state.started_at = __import__('datetime').datetime.now()
-    state.status = "running"
+    state.status = "stage_completed"
 
     # 保存会话元数据（未传参数时使用 config.py 中的默认值）
     meta = {
