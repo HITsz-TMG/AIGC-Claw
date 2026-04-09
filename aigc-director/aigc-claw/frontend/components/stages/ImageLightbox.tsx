@@ -129,6 +129,8 @@ export default function ImageLightbox({ images, initialIndex, onClose }: ImageLi
       {hasPrev && (
         <button
           onClick={goPrev}
+          aria-label="上一张 (左方向键)"
+          title="上一张 (左方向键)"
           className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -137,6 +139,8 @@ export default function ImageLightbox({ images, initialIndex, onClose }: ImageLi
       {hasNext && (
         <button
           onClick={goNext}
+          aria-label="下一张 (右方向键)"
+          title="下一张 (右方向键)"
           className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
         >
           <ChevronRight className="w-6 h-6" />
