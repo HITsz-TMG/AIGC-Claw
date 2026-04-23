@@ -58,7 +58,7 @@ class QwenVLClient:
             else:
                 raise RuntimeError(f"DashScope QwenVLClient failed: {getattr(response, 'message', response)}")
         except Exception as e:
-            raise RuntimeError(f"DashScope QwenVLClient error: {e}")
+            raise RuntimeError(f"DashScope QwenVLClient error: {e}") from e
 
 
 if __name__ == "__main__":
