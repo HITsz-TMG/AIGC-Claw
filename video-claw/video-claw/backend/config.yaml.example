@@ -33,6 +33,10 @@ api_providers:
     access_key: ''
     secret_key: ''
     enable_proxy: false
+  atlascloud:
+    api_key: ''
+    base_url: https://openapi.atlascloud.ai/v1
+    enable_proxy: false
 models:
   llm: qwen3.5-plus
   vlm: qwen3.5-plus

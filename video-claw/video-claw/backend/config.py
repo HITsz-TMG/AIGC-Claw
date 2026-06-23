@@ -56,6 +56,11 @@ DEFAULT_CONFIG: Dict[str, Any] = {
             "secret_key": "",
             "enable_proxy": False,
         },
+        "atlascloud": {
+            "api_key": "",
+            "base_url": "https://openapi.atlascloud.ai/v1",
+            "enable_proxy": False,
+        },
     },
     "models": {
         "llm": "qwen3.5-plus",
@@ -231,6 +236,9 @@ class Config:
     KLING_SECRET_KEY = _get(CONFIG, "api_providers.kling.secret_key")
     KLING_BASE_URL = _get(CONFIG, "api_providers.kling.base_url")
     KLING_ENABLE_PROXY = _get(CONFIG, "api_providers.kling.enable_proxy")
+    ATLASCLOUD_API_KEY = _get(CONFIG, "api_providers.atlascloud.api_key")
+    ATLASCLOUD_BASE_URL = _get(CONFIG, "api_providers.atlascloud.base_url")
+    ATLASCLOUD_ENABLE_PROXY = _get(CONFIG, "api_providers.atlascloud.enable_proxy")
 
     LLM_API_KEY = DASHSCOPE_API_KEY
     LLM_BASE_URL = ""
@@ -306,6 +314,9 @@ class Config:
         cls.KLING_SECRET_KEY = _get(clean, "api_providers.kling.secret_key")
         cls.KLING_BASE_URL = _get(clean, "api_providers.kling.base_url")
         cls.KLING_ENABLE_PROXY = _get(clean, "api_providers.kling.enable_proxy")
+        cls.ATLASCLOUD_API_KEY = _get(clean, "api_providers.atlascloud.api_key")
+        cls.ATLASCLOUD_BASE_URL = _get(clean, "api_providers.atlascloud.base_url")
+        cls.ATLASCLOUD_ENABLE_PROXY = _get(clean, "api_providers.atlascloud.enable_proxy")
 
         cls.LLM_API_KEY = cls.DASHSCOPE_API_KEY
         cls.LLM_BASE_URL = ""
