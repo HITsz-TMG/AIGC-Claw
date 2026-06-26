@@ -20,6 +20,10 @@ api_providers:
     api_key: ''
     base_url: https://api.deepseek.com/v1
     enable_proxy: false
+  minimax:
+    api_key: ''
+    base_url: https://api.minimax.io/v1
+    enable_proxy: false
   dashscope:
     api_key: ''
     base_url: https://dashscope.aliyuncs.com/api/v1

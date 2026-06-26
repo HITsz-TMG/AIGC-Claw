@@ -88,6 +88,15 @@ const GROUPS: Array<{ title: string; description: string; fields: Field[] }> = [
     ],
   },
   {
+    title: 'MiniMax',
+    description: 'MiniMax 文本模型接口配置（OpenAI 兼容）。',
+    fields: [
+      { path: 'api_providers.minimax.api_key', label: 'api_key API 密钥', type: 'password' },
+      { path: 'api_providers.minimax.base_url', label: 'base_url 接口地址' },
+      { path: 'api_providers.minimax.enable_proxy', label: 'enable_proxy 启用代理', type: 'boolean' },
+    ],
+  },
+  {
     title: 'DashScope',
     description: '通义千问、通义万相等 DashScope 服务配置。',
     fields: [

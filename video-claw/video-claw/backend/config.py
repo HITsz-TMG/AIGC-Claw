@@ -40,6 +40,11 @@ DEFAULT_CONFIG: Dict[str, Any] = {
             "base_url": "https://api.deepseek.com/v1",
             "enable_proxy": False,
         },
+        "minimax": {
+            "api_key": "",
+            "base_url": "https://api.minimax.io/v1",
+            "enable_proxy": False,
+        },
         "dashscope": {
             "api_key": "",
             "base_url": "https://dashscope.aliyuncs.com/api/v1",
@@ -220,6 +225,9 @@ class Config:
     DEEPSEEK_API_KEY = _get(CONFIG, "api_providers.deepseek.api_key")
     DEEPSEEK_BASE_URL = _get(CONFIG, "api_providers.deepseek.base_url")
     DEEPSEEK_ENABLE_PROXY = _get(CONFIG, "api_providers.deepseek.enable_proxy")
+    MINIMAX_API_KEY = _get(CONFIG, "api_providers.minimax.api_key")
+    MINIMAX_BASE_URL = _get(CONFIG, "api_providers.minimax.base_url")
+    MINIMAX_ENABLE_PROXY = _get(CONFIG, "api_providers.minimax.enable_proxy")
     DASHSCOPE_API_KEY = _get(CONFIG, "api_providers.dashscope.api_key")
     DASHSCOPE_BASE_URL = _get(CONFIG, "api_providers.dashscope.base_url")
     DASHSCOPE_ENABLE_PROXY = _get(CONFIG, "api_providers.dashscope.enable_proxy")
@@ -294,6 +302,9 @@ class Config:
         cls.DEEPSEEK_API_KEY = _get(clean, "api_providers.deepseek.api_key")
         cls.DEEPSEEK_BASE_URL = _get(clean, "api_providers.deepseek.base_url")
         cls.DEEPSEEK_ENABLE_PROXY = _get(clean, "api_providers.deepseek.enable_proxy")
+        cls.MINIMAX_API_KEY = _get(clean, "api_providers.minimax.api_key")
+        cls.MINIMAX_BASE_URL = _get(clean, "api_providers.minimax.base_url")
+        cls.MINIMAX_ENABLE_PROXY = _get(clean, "api_providers.minimax.enable_proxy")
         cls.DASHSCOPE_API_KEY = _get(clean, "api_providers.dashscope.api_key")
         cls.DASHSCOPE_BASE_URL = _get(clean, "api_providers.dashscope.base_url")
         cls.DASHSCOPE_ENABLE_PROXY = _get(clean, "api_providers.dashscope.enable_proxy")
