@@ -12,8 +12,8 @@ backend_dir = os.path.dirname(models_dir)
 if backend_dir not in sys.path:
     sys.path.insert(0, backend_dir)
 
-from copy import deepcopy
-from typing import Any, Optional
+from copy import deepcopy  # noqa: E402
+from typing import Any, Optional  # noqa: E402
 
 MODEL_CONFIG: dict[str, Any] = {'models': {'deepseek-chat': {'name': 'DeepSeek Chat',
                               'provider': 'deepseek',
@@ -39,6 +39,18 @@ MODEL_CONFIG: dict[str, Any] = {'models': {'deepseek-chat': {'name': 'DeepSeek C
                                 'concurrency': 10,
                                 'price_per_1k_input_token': 0.002,
                                 'price_per_1k_output_token': 0.008},
+            'qwen/qwen3.5-flash': {'name': 'Qwen 3.5 Flash (Atlas Cloud)',
+                                   'provider': 'atlascloud',
+                                   'family': 'qwen',
+                                   'type': ['llm'],
+                                   'concurrency': 10,
+                                   'api_contract_verified': True},
+            'deepseek-ai/deepseek-v4-pro': {'name': 'DeepSeek V4 Pro (Atlas Cloud)',
+                                            'provider': 'atlascloud',
+                                            'family': 'deepseek',
+                                            'type': ['llm'],
+                                            'concurrency': 10,
+                                            'api_contract_verified': True},
             'gpt-4o': {'name': 'GPT-4o',
                        'provider': 'openai',
                        'type': ['llm'],
