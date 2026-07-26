@@ -30,6 +30,11 @@ DEFAULT_CONFIG: Dict[str, Any] = {
             "base_url": "https://api.openai.com/v1",
             "enable_proxy": False,
         },
+        "atlascloud": {
+            "api_key": "",
+            "base_url": "https://api.atlascloud.ai/v1",
+            "enable_proxy": False,
+        },
         "gemini": {
             "api_key": "",
             "base_url": "https://generativelanguage.googleapis.com/v1beta",
@@ -214,6 +219,9 @@ class Config:
     OPENAI_API_KEY = _get(CONFIG, "api_providers.openai.api_key")
     OPENAI_BASE_URL = _get(CONFIG, "api_providers.openai.base_url")
     OPENAI_ENABLE_PROXY = _get(CONFIG, "api_providers.openai.enable_proxy")
+    ATLASCLOUD_API_KEY = _get(CONFIG, "api_providers.atlascloud.api_key")
+    ATLASCLOUD_BASE_URL = _get(CONFIG, "api_providers.atlascloud.base_url")
+    ATLASCLOUD_ENABLE_PROXY = _get(CONFIG, "api_providers.atlascloud.enable_proxy")
     GEMINI_API_KEY = _get(CONFIG, "api_providers.gemini.api_key")
     GOOGLE_GEMINI_BASE_URL = _get(CONFIG, "api_providers.gemini.base_url")
     GEMINI_ENABLE_PROXY = _get(CONFIG, "api_providers.gemini.enable_proxy")
@@ -288,6 +296,9 @@ class Config:
         cls.OPENAI_API_KEY = _get(clean, "api_providers.openai.api_key")
         cls.OPENAI_BASE_URL = _get(clean, "api_providers.openai.base_url")
         cls.OPENAI_ENABLE_PROXY = _get(clean, "api_providers.openai.enable_proxy")
+        cls.ATLASCLOUD_API_KEY = _get(clean, "api_providers.atlascloud.api_key")
+        cls.ATLASCLOUD_BASE_URL = _get(clean, "api_providers.atlascloud.base_url")
+        cls.ATLASCLOUD_ENABLE_PROXY = _get(clean, "api_providers.atlascloud.enable_proxy")
         cls.GEMINI_API_KEY = _get(clean, "api_providers.gemini.api_key")
         cls.GOOGLE_GEMINI_BASE_URL = _get(clean, "api_providers.gemini.base_url")
         cls.GEMINI_ENABLE_PROXY = _get(clean, "api_providers.gemini.enable_proxy")

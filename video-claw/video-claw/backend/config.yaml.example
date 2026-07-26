@@ -12,6 +12,10 @@ api_providers:
     api_key: ''
     base_url: https://api.openai.com/v1
     enable_proxy: false
+  atlascloud:
+    api_key: ''
+    base_url: https://api.atlascloud.ai/v1
+    enable_proxy: false
   gemini:
     api_key: ''
     base_url: https://generativelanguage.googleapis.com/v1beta

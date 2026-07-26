@@ -6,6 +6,7 @@ const PROVIDER_LABELS: Record<string, string> = {
   ark: 'ARK (Volcengine)',
   deepseek: 'DeepSeek',
   openai: 'OpenAI',
+  atlascloud: 'Atlas Cloud',
   gemini: 'Gemini',
   kling: 'Kling',
 };

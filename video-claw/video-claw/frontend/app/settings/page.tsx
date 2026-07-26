@@ -70,6 +70,15 @@ const GROUPS: Array<{ title: string; description: string; fields: Field[] }> = [
     ],
   },
   {
+    title: 'Atlas Cloud',
+    description: 'Atlas Cloud OpenAI-compatible 文本模型配置。',
+    fields: [
+      { path: 'api_providers.atlascloud.api_key', label: 'api_key API 密钥', type: 'password' },
+      { path: 'api_providers.atlascloud.base_url', label: 'base_url 接口地址' },
+      { path: 'api_providers.atlascloud.enable_proxy', label: 'enable_proxy 启用代理', type: 'boolean' },
+    ],
+  },
+  {
     title: 'Gemini',
     description: 'Gemini 及兼容接口配置。',
     fields: [
