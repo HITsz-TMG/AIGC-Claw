@@ -4,6 +4,7 @@ import { fetchApiModels } from '@/lib/workflowApi';
 const PROVIDER_LABELS: Record<string, string> = {
   dashscope: 'DashScope',
   ark: 'ARK (Volcengine)',
+  atlascloud: 'Atlas Cloud',
   deepseek: 'DeepSeek',
   openai: 'OpenAI',
   gemini: 'Gemini',

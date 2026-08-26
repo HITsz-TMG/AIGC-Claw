@@ -40,6 +40,11 @@ DEFAULT_CONFIG: Dict[str, Any] = {
             "base_url": "https://api.deepseek.com/v1",
             "enable_proxy": False,
         },
+        "atlascloud": {
+            "api_key": "",
+            "base_url": "https://api.atlascloud.ai/v1",
+            "enable_proxy": False,
+        },
         "dashscope": {
             "api_key": "",
             "base_url": "https://dashscope.aliyuncs.com/api/v1",
@@ -220,6 +225,19 @@ class Config:
     DEEPSEEK_API_KEY = _get(CONFIG, "api_providers.deepseek.api_key")
     DEEPSEEK_BASE_URL = _get(CONFIG, "api_providers.deepseek.base_url")
     DEEPSEEK_ENABLE_PROXY = _get(CONFIG, "api_providers.deepseek.enable_proxy")
+    ATLASCLOUD_API_KEY = (
+        _get(CONFIG, "api_providers.atlascloud.api_key")
+        or os.getenv("ATLASCLOUD_API_KEY")
+        or os.getenv("ATLAS_CLOUD_API_KEY")
+        or ""
+    )
+    ATLASCLOUD_BASE_URL = (
+        _get(CONFIG, "api_providers.atlascloud.base_url")
+        or os.getenv("ATLASCLOUD_API_BASE")
+        or os.getenv("ATLAS_CLOUD_API_BASE")
+        or "https://api.atlascloud.ai/v1"
+    )
+    ATLASCLOUD_ENABLE_PROXY = _get(CONFIG, "api_providers.atlascloud.enable_proxy")
     DASHSCOPE_API_KEY = _get(CONFIG, "api_providers.dashscope.api_key")
     DASHSCOPE_BASE_URL = _get(CONFIG, "api_providers.dashscope.base_url")
     DASHSCOPE_ENABLE_PROXY = _get(CONFIG, "api_providers.dashscope.enable_proxy")
@@ -294,6 +312,19 @@ class Config:
         cls.DEEPSEEK_API_KEY = _get(clean, "api_providers.deepseek.api_key")
         cls.DEEPSEEK_BASE_URL = _get(clean, "api_providers.deepseek.base_url")
         cls.DEEPSEEK_ENABLE_PROXY = _get(clean, "api_providers.deepseek.enable_proxy")
+        cls.ATLASCLOUD_API_KEY = (
+            _get(clean, "api_providers.atlascloud.api_key")
+            or os.getenv("ATLASCLOUD_API_KEY")
+            or os.getenv("ATLAS_CLOUD_API_KEY")
+            or ""
+        )
+        cls.ATLASCLOUD_BASE_URL = (
+            _get(clean, "api_providers.atlascloud.base_url")
+            or os.getenv("ATLASCLOUD_API_BASE")
+            or os.getenv("ATLAS_CLOUD_API_BASE")
+            or "https://api.atlascloud.ai/v1"
+        )
+        cls.ATLASCLOUD_ENABLE_PROXY = _get(clean, "api_providers.atlascloud.enable_proxy")
         cls.DASHSCOPE_API_KEY = _get(clean, "api_providers.dashscope.api_key")
         cls.DASHSCOPE_BASE_URL = _get(clean, "api_providers.dashscope.base_url")
         cls.DASHSCOPE_ENABLE_PROXY = _get(clean, "api_providers.dashscope.enable_proxy")
