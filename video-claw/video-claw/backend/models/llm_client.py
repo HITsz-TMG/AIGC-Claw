@@ -9,12 +9,14 @@ if backend_dir not in sys.path:
 import logging
 
 try:
+    from models.config_model import get_model_config
     from models.llm_gpt import GPT
     from models.llm_gemini import Gemini
     from models.llm_deepseek import DeepSeek
     from models.llm_dashscope import QwenLLM
     from models.vlm_dashscope import QwenVLClient
 except ImportError:
+    from config_model import get_model_config
     from llm_gpt import GPT
     from llm_gemini import Gemini
     from llm_deepseek import DeepSeek
@@ -26,7 +28,7 @@ from config import Config
 logger = logging.getLogger(__name__)
 
 class LLM:
-    def __init__(self, gemini_base_url="", gemini_api_key="", gpt_base_url="", gpt_api_key="", deepseek_base_url="", deepseek_api_key="", dashscope_api_key=""):
+    def __init__(self, gemini_base_url="", gemini_api_key="", gpt_base_url="", gpt_api_key="", deepseek_base_url="", deepseek_api_key="", dashscope_api_key="", atlascloud_base_url="", atlascloud_api_key=""):
         self._gemini_base_url = gemini_base_url or Config.GOOGLE_GEMINI_BASE_URL
         self._gemini_api_key = gemini_api_key or Config.GEMINI_API_KEY
         self._gpt_base_url = gpt_base_url or Config.OPENAI_BASE_URL
@@ -34,12 +36,15 @@ class LLM:
         self._deepseek_base_url = deepseek_base_url or Config.DEEPSEEK_BASE_URL
         self._deepseek_api_key = deepseek_api_key or Config.DEEPSEEK_API_KEY
         self._dashscope_api_key = dashscope_api_key or Config.DASHSCOPE_API_KEY
+        self._atlascloud_base_url = atlascloud_base_url or Config.ATLASCLOUD_BASE_URL
+        self._atlascloud_api_key = atlascloud_api_key or Config.ATLASCLOUD_API_KEY
 
         self._gemini_client = None
         self._gpt_client = None
         self._deepseek_client = None
         self._dashscope_client = None
         self._dashscope_vl_client = None
+        self._atlascloud_client = None
 
     @property
     def gemini_client(self):
@@ -80,6 +85,16 @@ class LLM:
         if self._dashscope_vl_client is None:
             self._dashscope_vl_client = QwenVLClient(api_key=self._dashscope_api_key)
         return self._dashscope_vl_client
+
+    @property
+    def atlascloud_client(self):
+        if self._atlascloud_client is None:
+            self._atlascloud_client = GPT(
+                base_url=self._atlascloud_base_url,
+                api_key=self._atlascloud_api_key,
+                proxy=Config.provider_proxy("atlascloud"),
+            )
+        return self._atlascloud_client
 
     def full_to_half(self, text):
         if not isinstance(text, str):
@@ -123,7 +138,10 @@ class LLM:
             
         result = ""
         model_lower = model.lower()
-        if model_lower.startswith("gemini"):
+        provider = get_model_config(model).get("provider")
+        if provider == "atlascloud":
+            result = self.atlascloud_client.query(prompt, image_urls=image_urls, model=model, web_search=False)
+        elif model_lower.startswith("gemini"):
             result = self.gemini_client.query(prompt, image_urls=image_urls, model=model)
         elif "gpt" in model_lower:
             # OpenAI series models
