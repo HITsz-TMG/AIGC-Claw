@@ -456,6 +456,10 @@ api_providers:
     api_key: your_deepseek_key
     base_url: https://api.deepseek.com/v1
     enable_proxy: false
+  minimax:
+    api_key: your_minimax_key
+    base_url: https://api.minimax.io/v1
+    enable_proxy: false
   dashscope:
     api_key: your_dashscope_key
     base_url: https://dashscope.aliyuncs.com/api/v1
@@ -488,6 +492,7 @@ models:
 | **OpenAI** | `api_providers.openai.api_key` / `base_url` | GPT text/vision models and OpenAI image models |
 | **Gemini** | `api_providers.gemini.api_key` / `base_url` | Gemini text and vision models |
 | **DeepSeek** | `api_providers.deepseek.api_key` / `base_url` | DeepSeek text models |
+| **MiniMax** | `api_providers.minimax.api_key` / `base_url` | MiniMax text models |
 | **DashScope** | `api_providers.dashscope.api_key` / `base_url` | Qwen, Wan image/video models, and related Alibaba Cloud services |
 | **Volcengine ARK** | `api_providers.ark.api_key` / `base_url` | Seedream image models and Seedance video models |
 | **Kling** | `api_providers.kling.access_key` / `secret_key` / `base_url` | Kling video generation |
@@ -498,7 +503,7 @@ You only need to fill in the provider keys required by the models you choose. Fo
 
 | Type | Models |
 |:---:|:---|
-| **LLM** | qwen3.6-max-preview, qwen3-max, deepseek-chat, deepseek-reasoner, deepseek-v4-flash, deepseek-v4-pro, gpt-4o, gpt-5, gpt-5.4, gemini-2.5-flash, gemini-2.0-flash, kimi-k2.6 |
+| **LLM** | qwen3.6-max-preview, qwen3-max, deepseek-chat, deepseek-reasoner, deepseek-v4-flash, deepseek-v4-pro, MiniMax-M3, MiniMax-M2.7, gpt-4o, gpt-5, gpt-5.4, gemini-2.5-flash, gemini-2.0-flash, kimi-k2.6 |
 | **VLM** | qwen3.6-plus, qwen3.6-flash, kimi-k2.6, gpt-5.4, gemini-2.5-flash-image, gemini-2.0-flash |
 | **Text-to-Image** | wan2.7-image, wan2.7-image-pro, wan2.6-t2i, doubao-seedream-5.0/4.5/4.0, gpt-image-2 |
 | **Image-to-Image** | wan2.7-image, wan2.7-image-pro, doubao-seedream-5.0/4.5/4.0, gpt-image-2 |

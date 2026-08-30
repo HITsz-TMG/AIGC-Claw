@@ -162,6 +162,7 @@ sed -n '1,120p' video-claw/backend/config.yaml
 | 平台 | config.yaml 字段 | 获取链接 |
 |------|--------------|----------|
 | DeepSeek | `api_providers.deepseek.api_key` | https://platform.deepseek.com/api_keys |
+| MiniMax | `api_providers.minimax.api_key` | https://platform.minimax.io |
 | 阿里云 DashScope | `api_providers.dashscope.api_key` 或 `models.llm.api_key` | https://bailian.console.aliyun.com/cn-beijing/?tab=home#/home |
 | 字节火山方舟 | `api_providers.ark.api_key` | https://www.volcengine.com/product/ark |
 | 快手可灵 Kling | `api_providers.kling.access_key` / `api_providers.kling.secret_key` | https://klingai.com/cn/dev |

@@ -5,6 +5,7 @@ const PROVIDER_LABELS: Record<string, string> = {
   dashscope: 'DashScope',
   ark: 'ARK (Volcengine)',
   deepseek: 'DeepSeek',
+  minimax: 'MiniMax',
   openai: 'OpenAI',
   gemini: 'Gemini',
   kling: 'Kling',

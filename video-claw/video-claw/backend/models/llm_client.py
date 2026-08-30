@@ -12,12 +12,14 @@ try:
     from models.llm_gpt import GPT
     from models.llm_gemini import Gemini
     from models.llm_deepseek import DeepSeek
+    from models.llm_minimax import MiniMax
     from models.llm_dashscope import QwenLLM
     from models.vlm_dashscope import QwenVLClient
 except ImportError:
     from llm_gpt import GPT
     from llm_gemini import Gemini
     from llm_deepseek import DeepSeek
+    from llm_minimax import MiniMax
     from llm_dashscope import QwenLLM
     from vlm_dashscope import QwenVLClient
 
@@ -26,18 +28,21 @@ from config import Config
 logger = logging.getLogger(__name__)
 
 class LLM:
-    def __init__(self, gemini_base_url="", gemini_api_key="", gpt_base_url="", gpt_api_key="", deepseek_base_url="", deepseek_api_key="", dashscope_api_key=""):
+    def __init__(self, gemini_base_url="", gemini_api_key="", gpt_base_url="", gpt_api_key="", deepseek_base_url="", deepseek_api_key="", minimax_base_url="", minimax_api_key="", dashscope_api_key=""):
         self._gemini_base_url = gemini_base_url or Config.GOOGLE_GEMINI_BASE_URL
         self._gemini_api_key = gemini_api_key or Config.GEMINI_API_KEY
         self._gpt_base_url = gpt_base_url or Config.OPENAI_BASE_URL
         self._gpt_api_key = gpt_api_key or Config.OPENAI_API_KEY
         self._deepseek_base_url = deepseek_base_url or Config.DEEPSEEK_BASE_URL
         self._deepseek_api_key = deepseek_api_key or Config.DEEPSEEK_API_KEY
+        self._minimax_base_url = minimax_base_url or Config.MINIMAX_BASE_URL
+        self._minimax_api_key = minimax_api_key or Config.MINIMAX_API_KEY
         self._dashscope_api_key = dashscope_api_key or Config.DASHSCOPE_API_KEY
 
         self._gemini_client = None
         self._gpt_client = None
         self._deepseek_client = None
+        self._minimax_client = None
         self._dashscope_client = None
         self._dashscope_vl_client = None
 
@@ -68,6 +73,15 @@ class LLM:
                 api_key=self._deepseek_api_key,
             )
         return self._deepseek_client
+
+    @property
+    def minimax_client(self):
+        if self._minimax_client is None:
+            self._minimax_client = MiniMax(
+                base_url=self._minimax_base_url,
+                api_key=self._minimax_api_key,
+            )
+        return self._minimax_client
 
     @property
     def dashscope_client(self):
@@ -128,6 +142,9 @@ class LLM:
         elif "gpt" in model_lower:
             # OpenAI series models
             result = self.gpt_client.query(prompt, image_urls=image_urls, model=model, web_search=web_search)
+        elif model_lower.startswith("minimax"):
+            # MiniMax series models (OpenAI-compatible interface)
+            result = self.minimax_client.query(prompt, image_urls=image_urls, model=model, web_search=web_search)
         elif "kimi" in model_lower or "qwen3.6-plus" in model_lower or "qwen3.6-flash" in model_lower or "vl" in model_lower:
             # DashScope VLM models (using MultiModalConversation API)
             result = self.dashscope_vl_client.chat(text=prompt, images=image_urls, model=model, stream=False)
